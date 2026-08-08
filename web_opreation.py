@@ -77,7 +77,7 @@ def serp_search(query,engine= 'google'):
 
 
 
-def reddit_search_api(keyword,date='All time',sort_by="Hot",num_of_posts =5):
+def reddit_search_api(keyword,date='All time',sort_by="Hot",num_of_posts =10):
     triggerd_url = 'https://api.brightdata.com/datasets/v3/trigger'
     params = {
         'dataset_id': 'gd_lvz8ah06191smkebj4',
@@ -112,19 +112,19 @@ def reddit_search_api(keyword,date='All time',sort_by="Hot",num_of_posts =5):
 
 
 
-def reddit_post_retrieval(urls,day_back=10,load_all_replies=False,comment_limit=''):
+def reddit_post_retrieval(urls,days_back=10,load_all_replies=False,comment_limit=''):
     if not urls:
         return None
     trigger_url = "https://api.brightdata.com/datasets/v3/trigger"
     params ={
-        "dataset_id":"gd_mgnh0p8w16o65lmhp",
-        "include_error":"true"
+        "dataset_id": "gd_lvzdpsdlw09j6t702",
+        "include_errors": "true"
     }
 
     data = [
         {
           "url":url,
-          "day_back":day_back,
+          "days_back":days_back,
           "load_all_replies":load_all_replies,
           "comment_limit": comment_limit,
         }
